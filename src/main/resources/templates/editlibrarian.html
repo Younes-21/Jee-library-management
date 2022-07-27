@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="navbar"></div>
+<h1>Edit librarian form</h1>
+<form th:action="@{created}" th:object="${librarian}" method="post">
+  <div>
+    <input type="hidden" class="form-control" th:field="*{id}">
+    <label>First name</label>
+    <input type="text"  class="form-control" th:field="*{firstName}">
+    <label>Last name</label>
+    <input type="text" class="form-control" th:field="*{lastName}">
+    <label>Username</label>
+    <input type="text" class="form-control" th:field="*{username}">
+    <label>Email</label>
+    <input type="text" class="form-control" th:field="*{email}">
+    <label>Password</label>
+    <input type="password" class="form-control" th:field="*{password}">
+    <input type="submit" value="Update" class="btn btn-warning">
+  </div>
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="navbar"></div>
+<h1>Create book form</h1>
+<form th:action="@{createdbook}" th:object="${book}" method="post">
+  <div>
+    <input type="hidden" class="form-control" th:field="*{id}">
+
+    <label>Title</label>
+    <input type="text" class="form-control" th:field="*{title}">
+     <label>Author</label>
+     <input type="text" class="form-control" th:field="*{author}">
+        <label>Category</label>
+    <div class="from-control" th:object="${categories}">
+      <select name="category" id="category" class="from-control">
+        <option>Select a category</option>
+        <option th:each="category:${categories}"
+                th:value="${category.id}"
+                th:text="${category.categoryName}"
+        >
+        </option>
+      </select></div>
+    <label>Section</label>
+    <div class="from-control" th:object="${sections}">
+      <select name="section" id="section" class="from-control">
+        <option>Select a section</option>
+        <option th:each="section:${sections}"
+                th:value="${section.id}"
+                th:text="${section.sectName}"
+        >
+        </option>
+      </select></div>
+    <label>Librarian</label>
+    <div class="from-control" th:object="${librarians}">
+      <select name="librarian" id="librarian" class="from-control">
+        <option>Select a librarian</option>
+        <option th:each="librarian:${librarians}"
+                th:value="${librarian.id}"
+                th:text="${librarian.firstName}"
+        >
+        </option>
+      </select></div>
+    <input type="submit" class="btn btn-success" value="submit">
+  </div>
+</form>
+</body>
+</html>

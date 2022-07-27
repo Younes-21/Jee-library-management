@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="navbar"></div>
+<h1>Add Borrow form</h1>
+<form th:action="@{addedborrow}" method="post">
+    <div>
+       <label>Choose a book </label>
+        <div class="from-control" th:object="${books}" >
+            <select name="book" id="book" class="from-control">
+                <option>Select a book </option>
+                <option th:each="book:${books}"
+                        th:value="${book.id}"
+                        th:text="${book.title}"
+                >
+                </option>
+            </select></div>
+        <label>Choose a client</label>
+        <div class="from-control" th:object="${clients}" >
+            <select name="client" id="client" class="from-control">
+                <option>Select a client</option>
+                <option th:each="client:${clients}"
+                        th:value="${client.id}"
+                        th:text="${client.firstName}"
+                >
+                </option>
+            </select></div>
+           <label>Date begin</label>
+          <input type="date" class="form-control" name="dateBegin">
+          <label>Date end</label>
+          <input type="date" class="form-control" name="dateEnd">
+        <label>Returned</label>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="returned" >
+        </div>
+        <input type="submit" class="btn btn-success" value="submit">
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="navbar"></div>
+<div class="container">
+    <div class="card">
+        <h1 style="text-align: center"> <div class="card-header" >List of books </div></h1>
+        <a class="btn btn-success" th:href="@{createbook}">Add book</a>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Section</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p:${listBooks}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.title}"></td>
+                    <td th:text="${p.author}"></td>
+                    <td th:text="${p.section.sectName}"></td>
+                    <td th:text="${p.category.categoryName}"></td>
+
+                    <td>
+                        <a class="btn btn-danger" th:href="@{deletebook(id=${p.id})}">Delete</a>
+                        <a class="btn btn-warning" th:href="@{editbook(id=${p.id})}">Update</a>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

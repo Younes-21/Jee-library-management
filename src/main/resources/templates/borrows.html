@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Borrows</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="navbar"></div>
+<div class="container">
+    <div class="card">
+        <h1 style="text-align: center"> <div class="card-header" >Borrows list </div></h1>
+        <a class="btn btn-success" th:href="@{addborrow}">Add a borrow</a>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Book</th>
+                    <th>Client</th>
+                    <th>Date begin</th>
+                    <th>Date end</th>
+                    <th>Returned</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <tr th:each="p:${listBorrows}">
+                     <td th:text="${p.id}"></td>
+                     <td th:text="${p.book.title}"></td>
+                     <td th:text="${p.client.firstName}"></td>
+                 <td th:text="${p.dateBegin}"></td>
+                     <td th:text="${p.dateEnd}"></td>
+                    <td th:text="${p.returned}"></td>
+                    <td>
+                        <a class="btn btn-danger" th:href="@{deleteborrow(id=${p.book.id})}">Delete</a>
+                        <a class="btn btn-warning" th:href="@{editborrow(id=${p.book.id})}">Update</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

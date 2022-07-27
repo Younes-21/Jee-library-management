@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" th:href="@{borrows}">Library management</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="@{librarians}">Librarians</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{clients}">Clients</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{borrows}">Borrows</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{books}">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{sections}">Sections</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{categories}">Categories</a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
+</body>
+</html>
